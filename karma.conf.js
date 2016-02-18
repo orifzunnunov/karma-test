@@ -36,25 +36,23 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress', 'html'],
+    reporters: ['progress', 'junit', 'html'],
 	
-	// the default configuration
-    htmlReporter: {
-      outputDir: 'karma_html', // where to put the reports 
-      templatePath: null, // set if you moved jasmine_template.html
-      focusOnFailures: true, // reports show failures on start
-      namedFiles: false, // name files instead of creating sub-directories
-      pageTitle: null, // page title for reports; browser info by default
-      urlFriendlyName: false, // simply replaces spaces with _ for files/dirs
-      reportName: 'report-summary-filename', // report summary filename; browser info by default
-
-
-      // experimental
-      preserveDescribeNesting: false, // folded suites stay folded 
-      foldAll: false, // reports start folded (only with preserveDescribeNesting)
+	 // the default configuration 
+    junitReporter: {
+      outputDir: '', // results will be saved as $outputDir/$browserName.xml 
+      outputFile: 'test-result.xml', // if included, results will be saved as $outputDir/$browserName/$outputFile 
+      suite: '', // suite will become the package name attribute in xml testsuite element 
+      useBrowserName: true // add browser name to report and classes names 
     },
 
-
+     htmlReporter: {
+      outputFile: 'units.html',
+			
+      // Optional 
+      pageTitle: 'Jasmine BDD Test results',
+      subPageTitle: 'CCV-UI'
+    },
     // web server port
     port: 9876,
 
@@ -74,13 +72,12 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome', 'IE'],
-
+    browsers: ['PhantomJS'],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: true,
-
+      
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity
