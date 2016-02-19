@@ -15,7 +15,7 @@ describe('calculator', function () {
             $scope.x = 1;
             $scope.y = 2;
             $scope.sum();
-            expect($scope.z).toBe(4);
+            expect($scope.z).toBe(3);
         }); 
 		it('z should have default value of zero', function () {
 			var $scope = {};
