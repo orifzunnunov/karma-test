@@ -29,7 +29,7 @@ describe('calculator', function () {
             $scope.x = 3;
             $scope.y = 2;
             $scope.sum();
-            expect($scope.z).toBe(6);
+            expect($scope.z).toBe(5);
         }); 
     });
 
