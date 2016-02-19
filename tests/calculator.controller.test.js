@@ -22,6 +22,15 @@ describe('calculator', function () {
 			var controller = $controller('CalculatorController', { $scope: $scope });
 			expect($scope.z).toBe(undefined);
 		});
+      
+      it('3 + 2 should equal to 5', function () {
+            var $scope = {};
+            var controller = $controller('CalculatorController', { $scope: $scope });
+            $scope.x = 3;
+            $scope.y = 2;
+            $scope.sum();
+            expect($scope.z).toBe(6);
+        }); 
     });
 
 });
